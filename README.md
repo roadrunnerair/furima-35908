@@ -15,7 +15,7 @@
 
 ### Association
 - has_many :items
-- has_many :order history
+- has_many :order_history
 
 
 ## items テーブル
@@ -24,13 +24,13 @@
 | -------------------------- | ---------- | ------------------------------ |
 | name	                     | string     | null: false,                   |
 | price	                     | integer    | null: false                    |
-| item_description           | string     | null: false                    |
+| item_description           | text       | null: false                    |
 | user                       | references | null: false, foreign_key: true |
-| category_id                | integer    | null: false, foreign_key: true |
-| item_condition_id          | integer    | null: false, foreign_key: true |
-| item_postage_id            | integer    | null: false, foreign_key: true |
-| prefecture_id              | integer    | null: false, foreign_key: true |
-| estimated_shipping_date_id | integer    | null: false, foreign_key: true |
+| category_id                | integer    | null: false,                   |
+| item_condition_id          | integer    | null: false,                   |
+| item_postage_id            | integer    | null: false,                   |
+| prefecture_id              | integer    | null: false,                   |
+| estimated_shipping_date_id | integer    | null: false,                   |
 
 ### Association
 - belongs_to :user
@@ -43,12 +43,10 @@
 
 
 ## order_history テーブル
-| Column         | Type       | Options                        |
-| -------------- | ---------- | ------------------------------ |
-| user           | references | null: false, foreign_key: true |
-| purchased_item | references | null: false, foreign_key: true |
-| users          | references | null: false, foreign_key: true |
-| items          | references | null: false, foreign_key: true |
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| user   | references | null: false, foreign_key: true |
+| item   | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
