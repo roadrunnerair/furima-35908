@@ -15,7 +15,7 @@
 
 ### Association
 - has_many :items
-- has_many :orders_histories
+- has_many :order_histories
 
 
 ## items テーブル
