@@ -42,7 +42,7 @@
 - belongs_to_active_hash :estimated_shipping_date_id
 
 
-## orders_histories テーブル
+## order_histories テーブル
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
 | user   | references | null: false, foreign_key: true |
@@ -54,7 +54,7 @@
 - has_one :mailing_address
 
 
-## mailings_addresses テーブル
+## mailing_addresses テーブル
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
 | post_code	    | string     | null: false                    |
