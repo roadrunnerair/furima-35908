@@ -15,7 +15,7 @@
 
 ### Association
 - has_many :items
-- has_many :orders_history
+- has_many :orders_histories
 
 
 ## items テーブル
@@ -42,7 +42,7 @@
 - belongs_to_active_hash :estimated_shipping_date_id
 
 
-## orders_history テーブル
+## orders_histories テーブル
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
 | user   | references | null: false, foreign_key: true |
@@ -54,7 +54,7 @@
 - has_one :mailing_address
 
 
-## mailings_address テーブル
+## mailings_addresses テーブル
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
 | post_code	    | string     | null: false                    |
