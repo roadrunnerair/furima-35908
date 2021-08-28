@@ -8,7 +8,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string :last_name,         null: false
       t.string :first_kana,        null: false
       t.string :last_kana,         null: false
-      t.integer :birth_day,        null: false
+      t.date :birth_day,           null: false
       
       ## Database authenticatable
       t.string :email,              null: false, default: ""
