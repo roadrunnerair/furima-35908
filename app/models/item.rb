@@ -5,7 +5,7 @@ class Item < ApplicationRecord
 
   belongs_to :category
 
-  validates :item_images,                 presence: true
+  validates :image,                       presence: true
   validates :name,                        presence: true, length: { maximum: 40 }
   validates :item_description,            presence: true, length: { maximum: 1000 }
   validates :category_id,                 presence: true
