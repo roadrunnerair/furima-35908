@@ -1,5 +1,7 @@
 window.addEventListener('load', function(){
 
   const priceInput = document.getElementById("item-price");
-  console.log(priceInput);
+  priceInput.addEventListener("input", () => {
+    console.log("イベント発火");
+ })
 })
