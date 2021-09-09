@@ -7,7 +7,7 @@ RSpec.describe User, type: :model do
 
   describe 'ユーザー新規登録' do
     context '新規登録できる場合' do
-      it "nicknameとemail、passwordとpassword_confirmation,first_name,last_name,first_kana,last_kana,birth_dayが存在すれば登録できる" do
+      it 'nicknameとemail、passwordとpassword_confirmation,first_name,last_name,first_kana,last_kana,birth_dayが存在すれば登録できる' do
         expect(@user).to be_valid
       end
     end
@@ -30,7 +30,7 @@ RSpec.describe User, type: :model do
         another_user = FactoryBot.build(:user)
         another_user.email = @user.email
         another_user.valid?
-        expect(another_user.errors.full_messages).to include("Email has already been taken")
+        expect(another_user.errors.full_messages).to include('Email has already been taken')
       end
 
       it 'emailの@がないと登録できない' do
@@ -69,7 +69,7 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
       end
-      
+
       it 'パスワードが全角文字を含まれると登録できない' do
         @user.password = 'ABCDEF'
         @user.valid?
