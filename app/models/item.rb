@@ -11,9 +11,9 @@ class Item < ApplicationRecord
   validates :category_id,                 numericality: { other_than: 1, message: "can't be blank" }
   validates :item_condition_id,           numericality: { other_than: 1, message: "can't be blank" }
   validates :item_postage_id,             numericality: { other_than: 1, message: "can't be blank" }
-  validates :prefecture_id,               numericality: { other_than: 1, message: "can't be blank" }
+  validates :prefecture_id,               numericality: { other_than: 0, message: "can't be blank" }
   validates :estimated_shipping_date_id,  numericality: { other_than: 1, message: "can't be blank" }
-  validates :price,                       numericality: { other_than: 1, message: "can't be blank" }
+  validates :price,                       presence: true
   validates :price,                       numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
-  validates :price,                       numericality: { other_than: 1, message: 'is invalid. Input half-width characters.' }
+  validates :price,                       numericality: { message: 'is invalid. Input half-width characters.' }
 end

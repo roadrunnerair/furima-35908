@@ -77,7 +77,7 @@ RSpec.describe Item, type: :model do
       end
 
       it 'prefecture_idがないと出品できない' do
-        @item.prefecture_id = 1
+        @item.prefecture_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include('Prefecture must be other than 1')
       end
