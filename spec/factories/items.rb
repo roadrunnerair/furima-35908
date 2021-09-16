@@ -2,9 +2,9 @@ FactoryBot.define do
   factory :item do
     association :user
 
-    name                          {"オムライス"}
-    price                         {"700"}
-    item_description              {"美味しい"}
+    name                          { 'オムライス' }
+    price                         { '700' }
+    item_description              { '美味しい' }
     category_id                   { Faker::Number.between(from: 1, to: 10) }
     item_condition_id             { Faker::Number.between(from: 1, to: 6) }
     item_postage_id               { Faker::Number.between(from: 1, to: 2) }

@@ -41,7 +41,7 @@ RSpec.describe Item, type: :model do
       it 'userがないと出品できない' do
         @item.user = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("User must exist")
+        expect(@item.errors.full_messages).to include('User must exist')
       end
 
       it 'category_idがないと出品できない' do
@@ -77,31 +77,31 @@ RSpec.describe Item, type: :model do
       it 'priceが300円以下だと出品できない' do
         @item.price = 299
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is invalid. Input half-width characters.")
+        expect(@item.errors.full_messages).to include('Price is invalid. Input half-width characters.')
       end
 
       it 'priceが9,999,999円以上だと出品できない' do
         @item.price = 10_000_000
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is invalid. Input half-width characters.")
+        expect(@item.errors.full_messages).to include('Price is invalid. Input half-width characters.')
       end
 
       it 'priceが半角数字でないと出品できない' do
         @item.price = '３００'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is invalid. Input half-width characters.")
+        expect(@item.errors.full_messages).to include('Price is invalid. Input half-width characters.')
       end
 
       it 'priceが半角英数混合では登録できないこと' do
         @item.price = '300dollars'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is invalid. Input half-width characters.")
+        expect(@item.errors.full_messages).to include('Price is invalid. Input half-width characters.')
       end
 
       it 'priceが半角英語だけでは登録できないこと' do
         @item.price = 'threemillion'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is invalid. Input half-width characters.")
+        expect(@item.errors.full_messages).to include('Price is invalid. Input half-width characters.')
       end
     end
   end
