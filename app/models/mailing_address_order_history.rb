@@ -7,8 +7,9 @@ class MailingAddressOrderHistory
    validates :prefecture_id
    validates :city
    validates :house_number
-   validates :building_name
    validates :phone_number, numericality: { only_integer: true }
+   validates :user_id
+   validates :item_id
   end
 
   with_options numericality: { other_than: 0, message: "can't be blank"} do
