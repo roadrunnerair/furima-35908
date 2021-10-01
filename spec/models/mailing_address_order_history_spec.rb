@@ -13,6 +13,10 @@ RSpec.describe MailingAddressOrderHistory, type: :model do
       it 'すべてのフォームの入力がされている' do
         expect(@mailing_address_order_history).to be_valid
       end
+
+      it "tokenがあれば保存ができること" do
+        expect(@mailing_address_order_history).to be_valid
+      end
       
       it "建物名が空の場合でも保存できること" do
         @mailing_address_order_history.building_name = ''
@@ -68,6 +72,12 @@ RSpec.describe MailingAddressOrderHistory, type: :model do
         @mailing_address_order_history.phone_number = '０００００００００００'
         @mailing_address_order_history.valid?
         expect(@mailing_address_order_history.errors.full_messages).to include("Phone number is not a number")
+      end
+
+      it "token が空では登録できないこと" do
+        @mailing_address_order_history.token = nil
+        @mailing_address_order_history.valid?
+        expect(@mailing_address_order_history.errors.full_messages).to include("Token can't be blank")
       end
 
       it "user_id が空では登録できないこと" do
