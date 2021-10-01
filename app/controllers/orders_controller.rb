@@ -5,11 +5,10 @@ class OrdersController < ApplicationController
   end
 
   def create
-    #binding.pry
     item = Item.find(params[:item_id])
     @mailing_address_order_history = MailingAddressOrderHistory.new(order_history_params)
     if @mailing_address_order_history.valid?
-      Payjp.api_key = "sk_test_e655568317aec344b5482694"
+      Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
       Payjp::Charge.create(
         amount: item.price,
         card: order_history_params[:token],
