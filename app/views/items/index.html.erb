@@ -134,16 +134,11 @@
         <div class='item-img-content'>
           <%= image_tag item.image, class: "item-img" %>
 
-          <%# 商品購入機能を実装した後に記述しますので、
-          141〜147行目のコードは残しています %>
-
-          <%# 商品が売れていればsold outを表示しましょう %>
-          <%# if item.order.present?  %>
-          <%# <div class='sold-out'>
+          <% if item.order_history.present? %>
+          <div class='sold-out'>
             <span>Sold Out!!</span>
-          </div> %>
-          <%# end %>
-          <%# //商品が売れていればsold outを表示しましょう %>
+          </div>
+          <% end %>
 
         </div>
         <% end %>
