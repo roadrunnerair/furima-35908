@@ -9,10 +9,10 @@ class OrdersController < ApplicationController
 
   def create
     item = Item.find(params[:item_id])
-    
+
     @mailing_address_order_history = MailingAddressOrderHistory.new(order_history_params)
     if @mailing_address_order_history.valid?
-      Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+      Payjp.api_key = ENV['PAYJP_SECRET_KEY']
       Payjp::Charge.create(
         amount: item.price,
         card: order_history_params[:token],
@@ -29,7 +29,7 @@ class OrdersController < ApplicationController
 
   def order_history_params
     params.require(:mailing_address_order_history).permit(:postal_code, :prefecture_id, :city, :house_number, :building_name, :phone_number)
-    .merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
+          .merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
   end
 
   def set_item
@@ -37,9 +37,6 @@ class OrdersController < ApplicationController
   end
 
   def prevent_url
-    if @item.user_id == current_user.id || @item.order_history != nil
-      redirect_to root_path
-    end
+    redirect_to root_path if @item.user_id == current_user.id || !@item.order_history.nil?
   end
-
 end
