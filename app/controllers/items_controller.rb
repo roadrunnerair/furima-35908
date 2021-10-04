@@ -46,7 +46,7 @@ class ItemsController < ApplicationController
   end
 
   def contributor_confirmation
-    redirect_to root_path unless current_user.id == @item.user.id
+    redirect_to root_path if @item.user_id != current_user.id || !@item.order_history.nil?
   end
 
   def set_item
