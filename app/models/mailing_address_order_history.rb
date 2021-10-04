@@ -9,6 +9,7 @@ class MailingAddressOrderHistory
     validates :city
     validates :house_number
     validates :phone_number, numericality: { only_integer: true }
+    validates :phone_number, format: { with: /\A\d{10}$|^\d{11}\z/ }
     validates :user_id
     validates :item_id
     validates :token
