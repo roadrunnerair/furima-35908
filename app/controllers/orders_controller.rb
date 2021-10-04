@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
     if @mailing_address_order_history.valid?
       Payjp.api_key = ENV['PAYJP_SECRET_KEY']
       Payjp::Charge.create(
-        amount: item.price,
+        amount: @item.price,
         card: order_history_params[:token],
         currency: 'jpy'
       )
