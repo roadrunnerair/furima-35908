@@ -91,6 +91,18 @@ RSpec.describe MailingAddressOrderHistory, type: :model do
         @mailing_address_order_history.valid?
         expect(@mailing_address_order_history.errors.full_messages).to include("Item can't be blank")
       end
+
+      it 'phone_numberが9桁以下では購入できない' do
+        @mailing_address_order_history.phone_number = '090123456'
+        @mailing_address_order_history.valid?
+        expect(@mailing_address_order_history.errors.full_messages).to include("Phone number is invalid")
+      end
+
+      it 'phone_numberが12桁以上では購入できない' do
+        @mailing_address_order_history.phone_number = '090123456789'
+        @mailing_address_order_history.valid?
+        expect(@mailing_address_order_history.errors.full_messages).to include("Phone number is invalid")
+      end
     end
   end
 end
