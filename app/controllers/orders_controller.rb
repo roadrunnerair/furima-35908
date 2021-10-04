@@ -8,8 +8,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-    item = Item.find(params[:item_id])
-
     @mailing_address_order_history = MailingAddressOrderHistory.new(order_history_params)
     if @mailing_address_order_history.valid?
       Payjp.api_key = ENV['PAYJP_SECRET_KEY']
