@@ -131,8 +131,8 @@
       <% @item.each do |item| %>
       <li class='list'>
         <%= link_to item_path(item.id) do %>
-        <div class='item-img-content'>
-          <%= image_tag item.image, class: "item-img" %>
+         <div class='item-img-content'>
+           <%= image_tag item.image, class: "item-img" %>
 
           <% if item.order_history.present? %>
           <div class='sold-out'>
@@ -140,10 +140,11 @@
           </div>
           <% end %>
 
-        </div>
+         </div>
         <% end %>
         
         <div class='item-info'>
+          <%= link_to item_path(item.id) do %>
            <h3 class='item-name'>
              <%= item.name %>
            </h3>
@@ -154,6 +155,7 @@
                <span class='star-count'>0</span>
              </div>
            </div>
+         <% end %>
         </div>
      </li>
      <% end %>
